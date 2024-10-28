@@ -16,11 +16,18 @@ class MyCVPage extends StatefulWidget {
 }
 
 class MyCVPageState extends State<MyCVPage> {
+  //Uint8List holds values for images
   Uint8List? image;
   void selectImage() async {
     Uint8List img = await changeProfilePicture(ImageSource.gallery);
     setState(() {
       image = img;
+    });
+  }
+
+  void removeImage() {
+    setState(() {
+      image = null;
     });
   }
 
@@ -117,10 +124,20 @@ class MyCVPageState extends State<MyCVPage> {
                       ),
                 Positioned(
                   bottom: 4,
-                  right: 4,
+                  left: 4,
                   child: IconButton(
                     onPressed: selectImage,
-                    icon: const Icon(Icons.add_a_photo),
+                    icon: const Icon(Icons.add_photo_alternate_rounded),
+                    color: Colors.blue,
+                    iconSize: 18,
+                  ),
+                ),
+                Positioned(
+                  bottom: 4,
+                  right: 4,
+                  child: IconButton(
+                    onPressed: removeImage,
+                    icon: const Icon(Icons.no_photography_rounded),
                     color: Colors.blue,
                     iconSize: 18,
                   ),

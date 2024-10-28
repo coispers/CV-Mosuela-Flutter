@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
 changeProfilePicture(ImageSource source) async {
